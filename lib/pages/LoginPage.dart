@@ -12,10 +12,16 @@ class LoginPage extends StatelessWidget {
           centerTitle: true,
         ),
         body: Container(
-          child: Column(
-            children: <Widget>[_headerBuild()],
-          ),
-        ));
+            padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+            height: 200,
+            child: Align(
+              //alignment: Alignment.center
+              //widthFactor: 200,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[_headerBuild()]),
+            ),
+            decoration: BoxDecoration(color: Colors.grey[700])));
   }
 }
 
