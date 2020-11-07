@@ -11,17 +11,29 @@ class LoginPage extends StatelessWidget {
           title: Text("Page de connexion"),
           centerTitle: true,
         ),
-        body: Container(
-            padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-            height: 200,
-            child: Align(
-              //alignment: Alignment.center
-              //widthFactor: 200,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[_headerBuild()]),
-            ),
-            decoration: BoxDecoration(color: Colors.grey[700])));
+        body: Center(
+          //padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+          //height: 150,
+          //widthFactor: 200,
+          //heightFactor: 200,
+          //child: Align(
+          //alignment: Alignment.center
+          //widthFactor: 200,
+          //child: Container(
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                _headerBuild(),
+                Expanded(
+                    child: Text(
+                  'LOOMOH RENDEZ-VOUS',
+                  textAlign: TextAlign.center,
+                ))
+              ]),
+
+          // )
+          //decoration: BoxDecoration(color: Colors.grey[700])
+        ));
   }
 }
 
@@ -29,9 +41,9 @@ class LoginPage extends StatelessWidget {
 Widget _headerBuild() {
   return new Container(
     alignment: Alignment.bottomRight,
-    child: Image.asset('img/calender.png'),
+    child: Image.asset('img/calender-2.png'),
     width: 100,
-    height: 100,
+    //height: 10,
     //alignment: Alignment.bottomRight
   );
 }
