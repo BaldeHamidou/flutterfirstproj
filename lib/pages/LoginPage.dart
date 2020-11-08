@@ -5,33 +5,40 @@ import 'package:flutter/material.dart';
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    String bar_haut = "Page connexion";
     return Scaffold(
         appBar: AppBar(
-          //backgroundColor: Color(200),
-          title: Text("Page de connexion"),
+          //Boutton de Menu
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                //tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              );
+            },
+          ),
+          actions: <Widget>[
+            new IconButton(
+                icon: new Icon(Icons.search),
+                tooltip: 'Rechercher dans cette page',
+                onPressed: () {}),
+            new IconButton(
+                icon: new Icon(Icons.verified_user), onPressed: () {})
+          ],
+          backgroundColor: Colors.redAccent,
+          title: Text(affichage_screen(bar_haut)),
           centerTitle: true,
         ),
-        body: Container(
-            padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-            height: 200,
-            child: Align(
-              //alignment: Alignment.center
-              //widthFactor: 200,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[_headerBuild()]),
-            ),
-            decoration: BoxDecoration(color: Colors.grey[700])));
+        body: Center(
+            //heightFactor: 200,
+            ));
   }
 }
 
-// Function to buil the header
-Widget _headerBuild() {
-  return new Container(
-    alignment: Alignment.bottomRight,
-    child: Image.asset('img/calender.png'),
-    width: 100,
-    height: 100,
-    //alignment: Alignment.bottomRight
-  );
+//Function to manage String
+String affichage_screen(var textAafficher) {
+  return textAafficher;
 }
