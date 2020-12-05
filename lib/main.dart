@@ -32,11 +32,12 @@ class _MonApplicationState extends State<MonApplication> {
     return new MaterialApp(
         title: 'Statfule Widget',
         home: new Scaffold(
-            body: Column(
-          children: [
+            body: ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
             titreSession,
             //SizedBox(height: 5.0),
-            iconSession,
+            //iconSession,
             //buttonPersonal,
             ligneElement,
           ],
@@ -49,14 +50,17 @@ class _MonApplicationState extends State<MonApplication> {
 //************************************************************** */
 Widget titreSession = Container(
   height: 200,
+  //width: 200,
   //padding: EdgeInsets.all(10.0),
-  margin: EdgeInsets.all(10.0),
+  //margin: EdgeInsets.all(10.0),
+  margin: EdgeInsets.only(left: 3, top: 0, right: 3, bottom: 10),
   //width: EdgeInsets,
 //color: Colors.amber,
   child: Stack(
     children: [
       Center(),
       imageDeProfil,
+      //petitButton,
     ],
   ),
   decoration: BoxDecoration(
@@ -74,8 +78,8 @@ Widget titreSession = Container(
           colors: [
             //Colors.red[900],
             Colors.yellow[800],
-            //Colors.green[900],
-            Colors.yellow[600]
+            Colors.yellow[50],
+            //Colors.yellow[10]
           ])),
 );
 //****************************************************************** */
@@ -86,37 +90,9 @@ Widget titreSession = Container(
 Widget iconSession = Container(
   height: 50,
   margin: EdgeInsets.all(10.0),
-  //padding: EdgeInsets.all(10.0),
-  //color: Colors.blue,
-  /* decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
-      gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Colors.red[50],
-            Colors.grey
-            //Colors.blue,
-          ])),*/
   child: Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      /*Container(
-          margin: EdgeInsets.all(5.0),
-          //alignment: Alignment.center,
-          //color: Colors.green,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5), color: Colors.green),
-          //margin: EdgeInsets.all(5),
-          child: Center(
-            IconButton(
-              icon: Icon(Icons.mail),
-              //iconSize: 20,
-              //alignment: Alignment,
-              iconSize: 40,
-              //padding: EdgeInsets.all(10),
-              //padding: EdgeInsetsGeometry.infinity,
-              onPressed: () {}))),*/
       IconButton(
           icon: Icon(Icons.mail, color: Colors.amber, size: 40),
           //iconSize: 40,
@@ -134,27 +110,27 @@ Widget iconSession = Container(
 //***************************************************************** */
 Widget buttonPersonal = Container(
   margin: EdgeInsets.all(5.0),
-  width: 150,
-  height: 250,
+  width: 250,
+  height: 500,
   //color: Colors.green,
   padding: EdgeInsets.all(20),
   child: Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
       Text(
-        "Prochain Rendz-vous",
-        style: TextStyle(color: Colors.white, fontSize: 20),
+        "Prochain Rendez-vous",
+        style: TextStyle(color: Colors.black, fontSize: 20),
       ),
       Text(
         "Rappel",
-        style: TextStyle(color: Colors.white, fontSize: 10),
+        style: TextStyle(color: Colors.black, fontSize: 10),
       ),
       petitButton,
       petitButtonText,
     ],
   ),
   decoration: BoxDecoration(
-    color: Colors.redAccent,
+    color: Colors.white,
     borderRadius: BorderRadius.circular(10),
     boxShadow: [
       BoxShadow(
@@ -174,7 +150,9 @@ Widget ligneElement = Container(
     alignment: Alignment.center,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+      children: <Widget>[
+        buttonPersonal,
+        SizedBox(width: 10.0),
         buttonPersonal,
         SizedBox(width: 10.0),
         buttonPersonal,
@@ -231,39 +209,23 @@ Widget petitButtonText = Container(
 //****************************************************************************** */
 
 //****************************************************************************** */
-//                   Widget pour image de Profil
+// Widget pour image de Profil
 //****************************************************************************** */
 Widget imageDeProfil = Container(
   margin: EdgeInsets.all(10),
   height: 80,
   width: 80,
-  //alignment: Alignment.topLeft,
-
-  //child: Image.asset(),
+  padding: EdgeInsets.all(5),
   decoration: BoxDecoration(
     color: Colors.white,
-    /*
+    // borderRadius: BorderRadius.circular(200),
     image: DecorationImage(
-      image: Image.asset('img/calender.png',),
-    ),*/
-    //shape: Border.all(width: 50),
-    //border: Border.all(
-    //width: 130,
-    //color: Theme.of(context).scaffoldBackgroundColor,
-    //  ),
+      image: AssetImage(
+        'img/profil.jpg',
+      ),
+      //fit: BoxFit.fill,
+    ),
     shape: BoxShape.circle,
-
-    //shape: ,
-
-    /*image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(
-                  'https://www.google.com/search?q=image&sxsrf=ALeKk02FxIGFZrFE_eKOr8b24hWpfBGEBQ:1606565626741&source=lnms&tbm=isch&sa=X&ved=2ahUKEwim0_Wrm6XtAhXSxoUKHXj7CA4Q_AUoAXoECAQQAw&biw=1536&bih=666#imgrc=_2JirDBiGzi3lM'),
-            )),*/
-  ),
-  child: Image.asset(
-    'img/calender.png',
-    alignment: Alignment.center,
   ),
 );
 
